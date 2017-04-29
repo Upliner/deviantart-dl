@@ -60,7 +60,7 @@ while flag:
     page = f.read()
     f.close()
     flag = False
-    for div in pageiter(page, '<div class="tt-a tt-fh','</span></div>', page.index('<td id="gruze-main"')):
+    for div in pageiter(page, 'data-sigil="torpedo-thumb deviation-thumb','</span>', page.index('<td id="gruze-main"')):
         try:
             url = pageiter(div, 'data-super-full-img="','"').next()
         except StopIteration:
