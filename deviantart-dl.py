@@ -42,7 +42,9 @@ def login(username, password):
 
 try:
     with open("credentials","r") as f:
-        login(f.next(), f.next())
+        user = f.next()
+        passwd = f.next()
+        login(user, passwd)
 except:
     pass
 
@@ -71,7 +73,7 @@ while flag:
                 print("Unknown content type:\n" + div)
                 if retry:
                     print("Retrying")
-                    login()
+                    login(user, passwd)
                     pagenum -= 1
                     retry = False
                     flag = True
