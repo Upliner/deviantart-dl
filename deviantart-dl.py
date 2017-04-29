@@ -67,7 +67,7 @@ while flag:
             try:
                 url = pageiter(div, 'data-super-img="','"').next()
             except StopIteration:
-                if '<img class="lit"' in div: retry = True; continue
+                if 'state-msg mature-state-msg' in div: retry = True; continue
                 print("Unknown content type:\n" + div)
                 if retry:
                     print("Retrying")
