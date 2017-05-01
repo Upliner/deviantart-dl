@@ -95,7 +95,6 @@ while flag:
         fout.close()
         t = time.mktime(fin.info().getdate("date"))
         fin.close()
-        print(t)
         os.utime(filename, (t,t))
         sys.stderr.write("\n")
         flag = True
