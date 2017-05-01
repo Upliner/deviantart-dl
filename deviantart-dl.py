@@ -68,7 +68,7 @@ while flag:
                 url = pageiter(div, 'data-super-img="','"').next()
             except StopIteration:
                 if 'freeform-thumb-text' in div: continue
-                if 'state-msg mature-state-msg' in div: retry = True; continue
+                if 'state-msg mature-state-msg' in div: retry = True
                 print("Unknown content type:\n" + div)
                 if retry:
                     print("Retrying")
