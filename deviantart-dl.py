@@ -1,8 +1,6 @@
 #!/usr/bin/python
 
-import sys, os
-import urllib2
-import socket
+import sys, os, time, urllib2, socket
 from xml.sax.saxutils import unescape
 from cookielib import CookieJar
 
@@ -69,6 +67,7 @@ while flag:
             try:
                 url = pageiter(div, 'data-super-img="','"').next()
             except StopIteration:
+                if 'freeform-thumb-text' in div: continue
                 if 'state-msg mature-state-msg' in div: retry = True; continue
                 print("Unknown content type:\n" + div)
                 if retry:
@@ -94,7 +93,10 @@ while flag:
             fout.write(buf)
             sys.stderr.write(".")
         fout.close()
+        t = time.mktime(fin.info().getdate("date"))
         fin.close()
+        print(t)
+        os.utime(filename, (t,t))
         sys.stderr.write("\n")
         flag = True
         retry = True
