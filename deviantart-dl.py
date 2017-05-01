@@ -25,7 +25,7 @@ def pageiter(buf, start, end, pos = 0):
         pos = pos2+len(end)
 
 def login(username, password):
-    f = opener.open("https://www.deviantart.com/users/login")
+    f = opener.open("https://www.deviantart.com/users/login?username=")
     page = f.read()
     f.close()
 
