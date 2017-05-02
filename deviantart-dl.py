@@ -67,6 +67,9 @@ while flag:
             try:
                 url = pageiter(div, 'data-super-img="','"').next()
             except StopIteration:
+              try:
+                  url = pageiter(div, '<img data-sigil="torpedo-img" src="','"').next()
+              except StopIteration:
                 if 'freeform-thumb-text' in div: continue
                 if 'state-msg mature-state-msg' in div: retry = True
                 print("Unknown content type:\n" + div)
