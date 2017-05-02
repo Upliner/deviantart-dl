@@ -42,7 +42,7 @@ try:
     with open("credentials","r") as f:
         dauser = f.next()
         passwd = f.next()
-        login(user, passwd)
+        login(dauser, passwd)
 except:
     pass
 
